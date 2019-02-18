@@ -2,9 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/go/src/github.com/acroca/go-symbols" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/go/src/github.com/derekparker/delve" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/go/src/github.com/go-sql-driver/mysql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/go/src/github.com/acroca/go-symbols" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/go/src/github.com/derekparker/delve" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libs/go/src/github.com/go-sql-driver/mysql" vcs="Git" />

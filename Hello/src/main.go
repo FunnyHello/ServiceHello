@@ -3,13 +3,23 @@ package main
 import (
 	"./controller"
 	"./hzx"
+	"./utils"
 	"log"
 	"net/http"
 	"time"
 )
 
 func main() {
-	initUtils()
+
+	go func() {
+		for {
+			temperature, humidity := utils.GetTemperatureHumidity()
+			log.Println("++++++++++++++++++")
+			log.Println("温度：",temperature)
+			log.Println("湿度：",humidity)
+			time.Sleep(1 * time.Second)
+		}
+	}()
 
 	//初始化数据库
 	hzx.InitDB()
@@ -32,21 +42,6 @@ func main() {
 func RegiterRouter(handler *hzx.RouterHandler) {
 	//初始化用户控制器
 	new(controller.UserConterller).Router(handler)
-}
-
-func initUtils() {
-	go func() {
-		utils.Twinkle()
-	}()
-
-	//以并发的方式调用匿名函数func
-	//go func() {
-	//	for {
-	//		utils.GetTemperature()
-	//		//延时10秒读取一次
-	//		time.Sleep(10 * time.Second)
-	//	}
-	//
-	//}()
-
+	//初始化用户控制器
+	new(controller.RaspberryPiConterller).Router(handler)
 }
