@@ -1,15 +1,14 @@
 package controller
 
 import (
+	"../constant"
 	"../entity"
 	"../hzx"
 	"../service"
 	"../utils"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
-	"../constant"
 )
 
 type UserConterller struct {
@@ -50,7 +49,7 @@ func (p *UserConterller) register(w http.ResponseWriter, r *http.Request) {
 		hzx.ResultOk(w, utils.EntityToJson(resultMold))
 		return
 	}
-	fmt.Println(*p)
+	log.Println(*p)
 	userName := user.UserName
 	password := user.Password
 
@@ -93,7 +92,6 @@ func (p *UserConterller) register(w http.ResponseWriter, r *http.Request) {
 //登陆
 func (p *UserConterller) login(w http.ResponseWriter, r *http.Request) {
 	resultMold := &entity.ResultMold{}
-
 
 	data := r.PostFormValue("data")
 	user := &entity.User{}
